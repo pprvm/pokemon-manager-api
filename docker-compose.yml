@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: pokemanager-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pokemanager
+      POSTGRES_PASSWORD: pokemanager
+      POSTGRES_DB: pokemanager
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U pokemanager']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
