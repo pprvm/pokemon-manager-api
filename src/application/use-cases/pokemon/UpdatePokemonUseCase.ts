@@ -2,8 +2,12 @@ import type { Pokemon, PokemonProps } from '@domain/entities/Pokemon';
 import { assertValidPokemon, normalizePokemonName } from '@domain/entities/Pokemon';
 import { PokemonAlreadyRegisteredError, PokemonNotFoundError } from '@domain/errors/PokemonErrors';
 import type { IPokemonRepository } from '@domain/repositories/IPokemonRepository';
+import type { BaseStats } from '@domain/value-objects/BaseStats';
 
-export type UpdatePokemonInput = Partial<PokemonProps>;
+// baseStats também pode vir parcial (ex: só { speed: 100 })
+export type UpdatePokemonInput = Partial<Omit<PokemonProps, 'baseStats'>> & {
+  baseStats?: Partial<BaseStats>;
+};
 
 export class UpdatePokemonUseCase {
   constructor(private readonly pokemonRepository: IPokemonRepository) {}
