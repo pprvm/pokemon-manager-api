@@ -1,0 +1,9 @@
+export interface Trainer {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export type TrainerProps = Pick<Trainer, 'name' | 'email'>;
