@@ -1,7 +1,7 @@
 # PokéManager API
 
 API REST para gerenciar um catálogo de pokémons, treinadores e seus times.
-Trabalho da disciplina de Projeto de Banco de Dados (UFF - Rio das Ostras).
+Trabalho da disciplina de Tópicos Especiais em Engenharia de Software (UFF - Rio das Ostras).
 
 ## Stack
 
